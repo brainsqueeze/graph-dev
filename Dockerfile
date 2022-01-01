@@ -18,4 +18,6 @@ USER gremlin
 
 RUN chmod 700 bin/gremlin-server.sh
 
-ENTRYPOINT [ "bin/gremlin-server.sh", "conf/gremlin-server.yaml" ]
+COPY graph_conf .
+
+ENTRYPOINT [ "bin/gremlin-server.sh", "gremlin-server.yaml" ]
