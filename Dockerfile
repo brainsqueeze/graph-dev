@@ -10,8 +10,6 @@ RUN wget -O /gremlin.zip https://dlcdn.apache.org/tinkerpop/${VERSION}/apache-ti
 
 WORKDIR /gremlin/apache-tinkerpop-gremlin-server-${VERSION}
 
-EXPOSE 8182
-
 RUN addgroup -S gremlin && adduser -S -s /bin/false -G gremlin gremlin
 RUN chown -R gremlin:gremlin /gremlin/apache-tinkerpop-gremlin-server-${VERSION}
 USER gremlin
