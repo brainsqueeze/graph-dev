@@ -2,6 +2,17 @@ version: '3'
 services:
 
   server:
-    build: ./
+    build: 
+      context: ./
+      network: host
     ports:
       - 8182:8182
+  
+  notebooks:
+    build: 
+      context: ./notebooks
+      network: host
+    ports:
+      - 8888:8888
+    depends_on:
+      - server

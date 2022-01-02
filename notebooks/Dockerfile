@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:4.9.2-alpine
+FROM continuumio/miniconda3:4.10.3-alpine
 
 WORKDIR /app/src/
 
@@ -12,6 +12,9 @@ RUN jupyter nbextension install --py --sys-prefix graph_notebook.widgets && \
 
 RUN python -m graph_notebook.notebooks.install --destination ./notebooks/demos
 
+COPY startup.sh startup.sh
+RUN chmod 700 startup.sh
+
 COPY ./notebooks/ ./notebooks/src/
 
-ENTRYPOINT [ "jupyter", "notebook", "--NotebookApp.kernel_manager_class=notebook.services.kernels.kernelmanager.AsyncMappingKernelManager", "./notebooks", "--ip=*", "--port=8888", "--no-browser", "--allow-root" ]
+ENTRYPOINT [ "./startup.sh" ]
