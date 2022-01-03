@@ -12,9 +12,11 @@ To start the gremlin-server and notebook environment simply run
 docker-compose up --build
 ```
 
-If you would like to run your own graph then you can add this cell and execute it
-```groovy
-%%gremlin
+## Custom data
+If you would like to run your own graph then you can override the docker compose settings with [docker-compose.data.yaml](./docker-compose.data.yaml). Please replace `hostPathToGraphsDir` with the absolute path to the folder containing graphml files.
 
-g.io(path).read().iterate();
+To start simply run
+```bash
+docker-compose -f docker-compose.yaml -f docker-compose.data.yaml up --build
 ```
+and then use the [custom_data](./notebooks/notebooks/custom_data.ipynb) notebook in Jupyter to get started.

@@ -1,0 +1,10 @@
+version: '3'
+services:
+
+  server:
+    volumes:
+      - hostPathToGraphsDir:/gremlin/apache-tinkerpop-gremlin-server-3.5.1/graphs:ro
+
+  notebooks:
+    volumes:
+      - hostPathToGraphsDir:/app/src/notebooks/src/graphs:ro
