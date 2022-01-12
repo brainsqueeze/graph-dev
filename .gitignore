@@ -5,4 +5,8 @@
 profile_default/
 ipython_config.py
 
-docker-compose.data.yaml
+# gremlin config
+*.properties
+*.groovy
+
+docker-compose.*.yaml
